@@ -11,12 +11,22 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
 
 // ============================
+// Vencimiento del Token
+// ============================
+process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+
+// ============================
+// SEED de autenticación
+// ============================
+process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
+
+// ============================
 // Base de Datos
 // ============================
 let urlDB;
 
 if( process.env.NODE_ENV === 'dev' ) {
-	urlDB = process.env.DEV_URI;
+	urlDB = 'mongodb://localhost:27017/cafe';
 } else {
 	urlDB = process.env.MONGO_URI;
 }
